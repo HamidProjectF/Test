@@ -1,0 +1,25 @@
+users(name table):               
+|_id --->connection id_hash(tables)
+|_name
+|_email
+|_username
+|_password
+
+
+wallet(name table):
+|_id
+|_id_hash--->connection id(table users)
+|_toman
+|_idm--->connection idm(tables)
+
+
+transactions(name table):
+|_id
+|_id_hashid_hash--->connection id(table users)
+|_toman
+|_idmstart
+|_idmend
+|_datesend
+|_dateget
+
+

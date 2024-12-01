@@ -1,0 +1,58 @@
+for architecture microservice : 
+
+
+ایجاد پروژه:
+
+پروژه را به ماژول‌های جداگانه تقسیم کنید (مانند Domain, Application, Infrastructure, Presentation).
+لایه Domain:
+تعریف موجودیت‌ها و اینترفیس‌های اصلی.
+نوشتن قوانین کسب‌وکار.
+لایه 
+
+
+Application:
+سرویس‌هایی برای مدیریت منطق دامنه و اجرای عملیات‌ها.
+استفاده از الگوی CQRS یا Mediator.
+لایه 
+
+
+Infrastructure:
+پیکربندی پایگاه داده (Entity Framework Core).
+پیاده‌سازی Repositoryها و سایر اینترفیس‌ها.
+لایه 
+
+
+Presentation:
+ساخت WebApp یا API برای تعامل با کاربران.
+استفاده از Dependency Injection برای ارتباط بین لایه‌ها.
+
+
+
+
+Solution
+├── OrdersService
+│   ├── Controllers
+│   ├── Services
+│   ├── Data
+│   ├── DTOs
+│   ├── Startup.cs
+│
+├── UsersService
+│   ├── Controllers
+│   ├── Services
+│   ├── Data
+│   ├── DTOs
+│   ├── Startup.cs
+│
+├── PaymentsService
+│   ├── Controllers
+│   ├── Services
+│   ├── Data
+│   ├── DTOs
+│   ├── Startup.cs
+
+
+
+alt  +195   ---> ├
+alt  + 196 ---> ─
+alt + 124 ---> |

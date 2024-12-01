@@ -1,0 +1,77 @@
+1. ایجاد Solution و پروژه‌ها
+ایجاد Solution: یک Solution ایجاد کنید تا بتوانید پروژه‌ها را سازماندهی کنید:
+dotnet new sln -n YourSolutionName
+
+ایجاد پروژه WebApp (برای لایه نمایش):
+dotnet new webapp -n WebApp
+
+ایجاد پروژه‌ها برای لایه‌های دیگر:
+Core: شامل منطق دامنه و اینترفیس‌ها.
+dotnet new classlib -n Core
+
+Application: شامل منطق کاربردی (Application Logic).
+dotnet new classlib -n Application
+
+Infrastructure: شامل زیرساخت‌ها و تعاملات با پایگاه داده یا سرویس‌های خارجی.
+dotnet new classlib -n Infrastructure
+
+
+
+اجرای دوباره دستور Migration
+پس از افزودن ApplicationDbContextFactory، دستور dotnet ef migrations add را دوباره اجرا کنید:
+
+dotnet ef migrations add InitialMigration --project ../Infrastructure --context ApplicationD
+
+_________________________________________________________________________________________________________
+
+. ساختار معماری Onion
+ساختار نهایی باید شبیه به این باشد:
+
+
+YourSolution
+│
+├── Core
+│   ├── Entities (مدل‌ها)
+│   ├── Interfaces (اینترفیس‌ها)
+│   └── Exceptions (مدیریت خطاها)
+│
+├── Application
+│   ├── DTOs (Data Transfer Objects)
+│   ├── Services (منطق کسب‌وکار)
+│   └── Interfaces (ارتباط با زیرساخت)
+│
+├── Infrastructure
+│   ├── Repositories (مخازن داده)
+│   ├── Implementations (پیاده‌سازی اینترفیس‌ها)
+│   └── Configuration (تنظیمات پایگاه داده)
+│
+└── WebApp
+    ├── Views (صفحات Razor)
+    ├── Controllers (کنترلرها)             ----> میتونی از مدل MVC استفاده نکنی از Razor استفاده کن  که پیش فرض هست
+    ├── Models (مدل‌های View)              
+    └── wwwroot (فایل‌های استاتیک)
+
+
+
+
+
+YourSolution
+│
+├── Core
+│   ├── Entities (مدل‌ها)
+│   ├── Interfaces (اینترفیس‌ها)
+│   └── Exceptions (مدیریت خطاها)
+│
+├── Application
+│   ├── DTOs (Data Transfer Objects)
+│   ├── Services (منطق کسب‌وکار)
+│   └── Interfaces (ارتباط با زیرساخت)
+│
+├── Infrastructure
+│   ├── Repositories (مخازن داده)
+│   ├── Implementations (پیاده‌سازی اینترفیس‌ها)
+│   └── Configuration (تنظیمات پایگاه داده)
+│
+└── WebApp
+    ├── pages
+    └── wwwroot (فایل‌های استاتیک)
